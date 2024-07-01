@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block main_content %}
+    <h1 class="font-extrabold text-2xl mb-3 border-b-2 border-solid border-red-600">{{judul}}</h1>
+        <ul class="flex">
+            {% for fillcategory in category %}
+                <li><a href="{% url 'blog:category' categoryurl=fillcategory.category%}" class="mr-4 text-blue-600 hover:underline">{{fillcategory.category}}</a></li>
+            {% endfor %}
+        </ul>
+
+        {% for fillpost in postingan %}
+            <h1 class="font-extrabold text-4xl">{{fillpost.judul}}</h1>
+                <p class="mb-4">{{fillpost.update}}</p>
+            <p>{{fillpost.body}}</p>
+        {% endfor %}
+               
+        
+{% endblock main_content %}

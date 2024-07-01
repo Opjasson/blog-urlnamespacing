@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'snipets/style.html' %}
+    <title>Home</title>
+</head>
+<body>
+<div class="relative flex flex-col m-auto text-gray-700 bg-white shadow-2xl bg-clip-border rounded-xl w-2/4 p-5">
+    {% block main_content %}
+        <h1 class="font-extrabold text-2xl mb-3">Ini adalah {{judul}}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <br>
+            <input type="text" name="username" id="username" class="border border-solid border-black">
+            <br>
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" id="password" class="border border-solid border-black">
+                <br>
+                <button type="submit" class="bg-stone-300 mt-3 rounded-lg">submit</button>
+            </form>
+
+    {% endblock main_content %}
+</div>
+</body>
+</html>

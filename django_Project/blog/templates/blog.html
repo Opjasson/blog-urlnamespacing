@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+
+    
+    {% block main_content %}
+    <h1 class="font-extrabold text-2xl mb-3 border-b-2 border-solid border-red-600">{{judul}}</h1>
+    
+    
+    {% for post in isi %}
+        <h1 class="font-extrabold text-4xl hover:text-blue-600 w-fit">{{post.judul}}</h1>
+    <p class="mb-4">{{post.waktuPosting}}</p>
+    <p class="mb-4">{{post.body|truncatewords:50}} <a href="{% url 'blog:detail' judulurl=post.judul%}" class="text-blue-600">more</a></p>
+    {% endfor %}
+    {% endblock main_content %}
+    
+
+
+
+
+
+
+
+
+
